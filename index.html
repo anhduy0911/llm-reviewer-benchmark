@@ -3,518 +3,861 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <!-- Primary Meta Tags -->
-  <!-- TODO: Replace with your paper title and author names -->
-  <meta name="title" content="PAPER_TITLE - AUTHOR_NAMES">
-  <!-- TODO: Write a compelling 150-160 character description of your research -->
-  <meta name="description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Add 5-10 relevant keywords for your research area -->
-  <meta name="keywords" content="KEYWORD1, KEYWORD2, KEYWORD3, machine learning, computer vision, AI">
-  <!-- TODO: List all authors -->
-  <meta name="author" content="FIRST_AUTHOR_NAME, SECOND_AUTHOR_NAME">
+
+  <!-- =========================
+       Primary Meta Tags (SEO)
+  ========================== -->
+  <meta name="title" content="LLMs as Reviewers: Benchmarking LLM Reviews vs Human Reviews (UROP 2025)">
+  <meta name="description" content="A benchmark and pipeline to compare LLM-generated peer reviews against human reviews across alignment, groundedness, rigor, scholarly context, actionability, prioritization, and conduct.">
+  <meta name="keywords" content="peer review, LLM evaluation, LLM reviewers, benchmarking, rubric, groundedness, specificity, scholarly context, LLM-as-a-judge, review quality, NeurIPS, ICLR">
+  <meta name="author" content="UROP 2025 LLM Reviewers Team (UIUC)">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
-  
-  <!-- Open Graph / Facebook -->
+
+  <!-- =========================
+       Open Graph / Social
+  ========================== -->
   <meta property="og:type" content="article">
-  <!-- TODO: Replace with your institution or lab name -->
-  <meta property="og:site_name" content="INSTITUTION_OR_LAB_NAME">
-  <!-- TODO: Same as paper title above -->
-  <meta property="og:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta property="og:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Replace with your actual website URL -->
-  <meta property="og:url" content="https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE">
-  <!-- TODO: Create a 1200x630px preview image and update path -->
-  <meta property="og:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
+  <meta property="og:site_name" content="UROP 2025 (UIUC) — LLMs as Reviewers">
+  <meta property="og:title" content="LLMs as Reviewers: Benchmarking LLM Reviews vs Human Reviews">
+  <meta property="og:description" content="A benchmark and pipeline to compare LLM-generated peer reviews against human reviews across alignment, groundedness, rigor, scholarly context, actionability, prioritization, and conduct.">
+  <!-- TODO: Update to your GitHub Pages URL -->
+  <meta property="og:url" content="https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO/">
+  <!-- TODO: Provide 1200x630 image at this path -->
+  <meta property="og:image" content="https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO/static/images/social_preview.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="PAPER_TITLE - Research Preview">
-  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
-  <meta property="article:author" content="FIRST_AUTHOR_NAME">
+  <meta property="og:image:alt" content="LLMs as Reviewers Benchmark — Preview">
+  <meta property="article:published_time" content="2025-12-30T00:00:00.000Z">
   <meta property="article:section" content="Research">
-  <meta property="article:tag" content="KEYWORD1">
-  <meta property="article:tag" content="KEYWORD2">
+  <meta property="article:tag" content="peer review">
+  <meta property="article:tag" content="LLM evaluation">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <!-- TODO: Replace with your lab/institution Twitter handle -->
+  <!-- TODO: add handles or remove -->
   <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">
-  <!-- TODO: Replace with first author's Twitter handle -->
   <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE">
-  <!-- TODO: Same as paper title above -->
-  <meta name="twitter:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta name="twitter:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Same as social preview image above -->
-  <meta name="twitter:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta name="twitter:image:alt" content="PAPER_TITLE - Research Preview">
+  <meta name="twitter:title" content="LLMs as Reviewers: Benchmarking LLM Reviews vs Human Reviews">
+  <meta name="twitter:description" content="Benchmarking LLM reviewers vs humans with metrics for relevance, specificity, synthesize-ability, judge-based scoring, and LLM-detection.">
+  <meta name="twitter:image" content="https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO/static/images/social_preview.png">
+  <meta name="twitter:image:alt" content="LLMs as Reviewers Benchmark — Preview">
 
-  <!-- Academic/Research Specific -->
-  <meta name="citation_title" content="PAPER_TITLE">
-  <meta name="citation_author" content="FIRST_AUTHOR_LAST, FIRST_AUTHOR_FIRST">
-  <meta name="citation_author" content="SECOND_AUTHOR_LAST, SECOND_AUTHOR_FIRST">
-  <meta name="citation_publication_date" content="2024">
-  <meta name="citation_conference_title" content="CONFERENCE_NAME">
-  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">
-  
-  <!-- Additional SEO -->
+  <!-- Academic meta (fill when ready) -->
+  <meta name="citation_title" content="LLMs as Reviewers: Benchmarking LLM Reviews vs Human Reviews">
+  <meta name="citation_publication_date" content="2025">
+  <meta name="citation_conference_title" content="Preprint / In Progress">
+  <meta name="citation_pdf_url" content="https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO/static/pdfs/paper.pdf">
+
   <meta name="theme-color" content="#2563eb">
   <meta name="msapplication-TileColor" content="#2563eb">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  
-  <!-- Preconnect for performance -->
+
+  <!-- Performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://ajax.googleapis.com">
-  <link rel="preconnect" href="https://documentcloud.adobe.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
+  <title>LLMs as Reviewers: Benchmarking LLM Reviews vs Human Reviews</title>
 
-  <!-- TODO: Replace with your paper title and authors -->
-  <title>PAPER_TITLE - AUTHOR_NAMES | Academic Research</title>
-  
-  <!-- Favicon and App Icons -->
+  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
   <link rel="apple-touch-icon" href="static/images/favicon.ico">
-  
-  <!-- Critical CSS - Load synchronously -->
+
+  <!-- CSS -->
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
-  
-  <!-- Non-critical CSS - Load asynchronously -->
+
   <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  
-  <!-- Fallback for browsers that don't support preload -->
   <noscript>
     <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
     <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   </noscript>
-  
-  <!-- Fonts - Optimized loading -->
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Defer non-critical JavaScript -->
+
+  <!-- JS -->
   <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
   <script defer src="static/js/bulma-carousel.min.js"></script>
-  <script defer src="static/js/bulma-slider.min.js"></script>
   <script defer src="static/js/index.js"></script>
-  
-  <!-- Structured Data for Academic Papers -->
+
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
-    "headline": "PAPER_TITLE",
-    "description": "BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS",
+    "headline": "LLMs as Reviewers: Benchmarking LLM Reviews vs Human Reviews",
+    "description": "A benchmark and pipeline to compare LLM-generated peer reviews against human reviews across alignment, groundedness, rigor, scholarly context, actionability, prioritization, and conduct.",
     "author": [
-      {
-        "@type": "Person",
-        "name": "FIRST_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      },
-      {
-        "@type": "Person",
-        "name": "SECOND_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      }
+      { "@type": "Person", "name": "UROP 2025 LLM Reviewers Team" }
     ],
-    "datePublished": "2024-01-01",
-    "publisher": {
-      "@type": "Organization",
-      "name": "CONFERENCE_OR_JOURNAL_NAME"
-    },
-    "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
-    "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
-    "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
-    "abstract": "FULL_ABSTRACT_TEXT_HERE",
-    "citation": "BIBTEX_CITATION_HERE",
+    "datePublished": "2025-12-30",
+    "publisher": { "@type": "Organization", "name": "Preprint / In Progress" },
+    "url": "https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO/",
+    "image": "https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO/static/images/social_preview.png",
+    "keywords": ["peer review", "LLM evaluation", "LLM reviewers", "benchmarking", "rubric", "groundedness", "specificity", "LLM-as-a-judge"],
     "isAccessibleForFree": true,
-    "license": "https://creativecommons.org/licenses/by/4.0/",
-    "mainEntity": {
-      "@type": "WebPage",
-      "@id": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE"
-    },
-    "about": [
-      {
-        "@type": "Thing",
-        "name": "RESEARCH_AREA_1"
-      },
-      {
-        "@type": "Thing", 
-        "name": "RESEARCH_AREA_2"
-      }
-    ]
+    "license": "https://creativecommons.org/licenses/by/4.0/"
   }
   </script>
-  
-  <!-- Website/Organization Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "INSTITUTION_OR_LAB_NAME",
-    "url": "https://YOUR_INSTITUTION_WEBSITE.com",
-    "logo": "https://YOUR_DOMAIN.com/static/images/favicon.ico",
-    "sameAs": [
-      "https://twitter.com/YOUR_TWITTER_HANDLE",
-      "https://github.com/YOUR_GITHUB_USERNAME"
-    ]
-  }
-  </script>
+
+  <style>
+    /* Small additions for readability (keeps template CSS intact) */
+    .section-title { margin-bottom: 0.5rem; }
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.12);
+      margin: 0.2rem 0.25rem 0 0;
+      font-size: 0.85rem;
+      background: rgba(37,99,235,0.06);
+    }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    .callout {
+      border-left: 4px solid #2563eb;
+      padding: 0.9rem 1rem;
+      background: rgba(37,99,235,0.06);
+      border-radius: 10px;
+    }
+    .tiny { font-size: 0.92rem; opacity: 0.85; }
+    .table-wrap { overflow-x:auto; }
+    .nav-links a { margin: 0 0.5rem; }
+  </style>
 </head>
+
 <body>
 
-
-  <!-- Scroll to Top Button -->
+  <!-- Scroll to Top Button (index.js should provide scrollToTop()) -->
   <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
     <i class="fas fa-chevron-up"></i>
   </button>
 
-  <!-- More Works Dropdown -->
-  <div class="more-works-container">
-    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
-      <i class="fas fa-flask"></i>
-      More Works
-      <i class="fas fa-chevron-down dropdown-arrow"></i>
-    </button>
-    <div class="more-works-dropdown" id="moreWorksDropdown">
-      <div class="dropdown-header">
-        <h4>More Works from Our Lab</h4>
-        <button class="close-btn" onclick="toggleMoreWorks()">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="works-list">
-        <!-- TODO: Replace with your lab's related works -->
-        <a href="https://arxiv.org/abs/PAPER_ID_1" class="work-item" target="_blank">
-          <div class="work-info">
-            <!-- TODO: Replace with actual paper title -->
-            <h5>Paper Title 1</h5>
-            <!-- TODO: Replace with brief description -->
-            <p>Brief description of the work and its main contribution.</p>
-            <!-- TODO: Replace with venue and year -->
-            <span class="work-venue">Conference/Journal 2024</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <!-- TODO: Add more related works or remove extra items -->
-        <a href="https://arxiv.org/abs/PAPER_ID_2" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 2</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <a href="https://arxiv.org/abs/PAPER_ID_3" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 3</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
+  <!-- Top mini-nav -->
+  <section class="section" style="padding-bottom:0;">
+    <div class="container is-max-desktop has-text-centered nav-links">
+      <a href="#overview">Overview</a> ·
+      <a href="#pipeline">Pipeline</a> ·
+      <a href="#datasets">Datasets</a> ·
+      <a href="#methods">Methods</a> ·
+      <a href="#metrics">Metrics</a> ·
+      <a href="#results">Preliminary Results</a> ·
+      <a href="#roadmap">Roadmap</a> ·
+      <a href="#resources">Resources</a> ·
+      <a href="#references">References</a> ·
+      <a href="#BibTeX">BibTeX</a>
     </div>
-  </div>
+  </section>
 
-  <main id="main-content">
-  <section class="hero">
+  <!-- HERO -->
+  <section class="hero" id="overview">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <!-- TODO: Replace with your paper title -->
-            <h1 class="title is-1 publication-title">Academic Project Page</h1>
+            <h1 class="title is-1 publication-title">
+              LLMs as Reviewers: Benchmarking LLM Reviews vs Human Reviews
+            </h1>
+
             <div class="is-size-5 publication-authors">
-              <!-- TODO: Replace with your paper authors and their personal links -->
-              <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
-                  </span>
-                  </div>
+              <!-- <span class="author-block"><a href="#" target="_blank">Duy A. Nguyen</a>,</span>
+              <span class="author-block"><a href="#" target="_blank">Thanh Nho</a>,</span>
+              <span class="author-block"><a href="#" target="_blank">Thanh Nguyen</a>,</span>
+              <span class="author-block"><a href="#" target="_blank">Thành Trần</a>,</span>
+              <span class="author-block"><a href="#" target="_blank">Tuấn Anh</a></span> -->
+              <span class="author-block"><a href="#" target="_blank">UROP Students</a></span>
+            </div>
 
-                  <div class="is-size-5 publication-authors">
-                    <!-- TODO: Replace with your institution and conference/journal info -->
-                    <span class="author-block">Institution Name<br>Conference name and year</span>
-                    <!-- TODO: Remove this line if no equal contribution -->
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
-                  </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Vin University 2025</span>
+            </div>
 
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- TODO: Update with your arXiv paper ID -->
-                      <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
+            <div class="content has-text-centered" style="margin-top: 1rem;">
+              <span class="pill">Relevance</span>
+              <span class="pill">Specificity</span>
+              <span class="pill">Synthesizing Ability</span>
+              <span class="pill">LLM-as-a-Judge</span>
+              <span class="pill">LLM Detector</span>
+              <span class="pill">Standardization (SEA)</span>
+            </div>
 
-                    <!-- TODO: Add your supplementary material PDF or remove this section -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
+            <div class="column has-text-centered" style="margin-top: 0.8rem;">
+              <div class="publication-links">
 
-                  <!-- TODO: Replace with your GitHub repository URL -->
-                  <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
+                <!-- TODO: Update links when ready -->
+                <span class="link-block">
+                  <a href="#" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                    <span>Technical Report</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="#" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="ai ai-arxiv"></i></span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fab fa-github"></i></span>
                     <span>Code</span>
                   </a>
                 </span>
 
-                <!-- TODO: Update with your arXiv paper ID -->
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
+                  <a href="#results" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fas fa-chart-line"></i></span>
+                    <span>Results</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="#datasets" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fas fa-database"></i></span>
+                    <span>Datasets</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="#references" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fas fa-book"></i></span>
+                    <span>References</span>
+                  </a>
+                </span>
+
+              </div>
+            </div>
+
+            <div class="callout has-text-left" style="margin-top: 1.2rem;">
+              <strong>Goal.</strong>
+              Build a reproducible pipeline to generate and evaluate LLM reviews against human reviews, and quantify performance
+              on (i) content relevance, (ii) technical depth/specificity, (iii) “synthesizing ability” via correct external references,
+              (iv) guideline compliance via LLM-as-a-judge, and (v) human-likeness via LLM detectors.
+            </div>
+
+            <p class="tiny has-text-centered" style="margin-top: 0.8rem;">
+              This page summarizes our ongoing work; numbers are preliminary and will be updated as we scale to more papers and models.
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEASER: pipeline figure (preferred over video for this project) -->
+  <section class="hero teaser" id="pipeline">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <!-- TODO: Add an overview figure -->
+        <!-- <iframe src="static/images/complete_pipeline.pdf" alt="Pipeline overview" style="width:100%; height:600px; border: none; border-radius:12px;" type="application/pdf"></iframe> -->
+        <img src="static/images/complete_pipeline.png" alt="Pipeline overview" loading="lazy" style="width:100%; border-radius:12px;">
+        <h2 class="subtitle has-text-centered" style="margin-top: 0.75rem;">
+          End-to-end workflow: <span class="mono">papers → prompting/model strategy → review generation → SEA standardization → evaluation</span>.
+          We compare multiple generators (Reviewer2-style, SEA-based, SWIF2T) under shared datasets and metrics.
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABSTRACT -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 section-title">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Large language models (LLMs) are increasingly used to draft and critique research papers, yet it remains unclear
+              how their reviews compare to human reviews on decision-relevant dimensions. We build a benchmark and pipeline to
+              (1) generate LLM reviews for conference papers using multiple strategies and models, (2) standardize outputs with a
+              Standardization Agent (SEA) to unify structure and formatting, and (3) evaluate review quality using both
+              reference-based metrics (e.g., BLEU/ROUGE for relevance, BERTScore-based specificity) and rubric-based scoring
+              (LLM-as-a-judge following top-venue reviewer guidelines).
+              We also study “synthesizing ability” by checking whether external technical terms/method names referenced in a review
+              correspond to real scholarly entities, and we quantify human-likeness using LLM detectors.
+              Preliminary results show that different systems trade off surface similarity, specificity, and external referencing,
+              motivating careful evaluation before deploying LLM reviewers in real workflows.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DATASETS -->
+  <section class="section" id="datasets">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 section-title has-text-centered">Datasets</h2>
+
+      <div class="columns">
+        <div class="column">
+          <div class="box">
+            <h3 class="title is-5">NeurIPS 2023 (processed)</h3>
+            <div class="content">
+              <ul>
+                <li><strong>Scale:</strong> 3,395 papers.</li>
+                <li><strong>Artifacts:</strong> raw PDFs; full paper content in structured text (e.g., <span class="mono">.mmd</span>); reviews & comments in JSON; raw reviews in text.</li>
+                <!-- <li><strong>Ops note:</strong> prototype SEA test ~ <strong>10s/paper</strong> (initial indicator).</li> -->
+              </ul>
+              <p class="tiny">Status: processed + standardized + evaluation scripts are being consolidated for reproducible runs.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="box">
+            <h3 class="title is-5">ICLR 2024 (processed)</h3>
+            <div class="content">
+              <ul>
+                <!-- <li><strong>Scope:</strong> ICLR papers spanning 2020-2024.</li>
+                <li><strong>Use:</strong> larger-scale benchmarking and ablations across generation strategies.</li>
+                <li><strong>Hosting:</strong> uploaded to a shared dataset repo (HuggingFace / internal mirror).</li> -->
+                <li><strong>Scale:</strong> ~5,000 papers.</li>
+                <li><strong>Artifacts:</strong> raw PDFs; full paper content in structured text (e.g., <span class="mono">.mmd</span>); reviews & comments in JSON; raw reviews in text.</li>
+              </ul>
+              <p class="tiny">
+                TODO: double-check this information and update if needed.
+              </p>
             </div>
           </div>
         </div>
       </div>
+
+      <div class="callout">
+        <strong>Dataset format (Prompt-Review record).</strong>
+        <!-- For each paper we store identifiers + metadata, an aspect prompt (6-10 numbered questions), and the generated review
+        following a fixed template (Summary / Strengths / Weaknesses / Questions for Authors). This aligns with the “Reviewer2-style” evaluation setup. -->
+        For each paper, besides identifiers and metadata, we store a list of actual reviews and available discussions gathered during the review process. These reviews follow a conference-specific fixed template (e.g., Summary / Strengths / Weaknesses / Questions for Authors). For current scope of the project, we use these reviews to represent the human standard during comparison.
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- METHODS -->
+  <section class="section hero is-light" id="methods">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 section-title has-text-centered">Systems / Methods</h2>
 
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <!-- TODO: Replace with your teaser video -->
-      <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
-        <source src="static/videos/banner_video.mp4" type="video/mp4">
-      </video>
-      <!-- TODO: Replace with your video description -->
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
+      <div class="columns">
+        <div class="column">
+          <div class="box">
+            <h3 class="title is-5">Reviewer2 (Prompt→Review)</h3>
+            <div class="content">
+              <ul>
+                <li><strong>Parser:</strong> converts PDF into structured text (title, abstract, sections, references).</li>
+                <li><strong>Prompt model (M<sub>p</sub>):</strong> generates aspect prompts (novelty, significance, clarity, experiments, etc.).</li>
+                <li><strong>Review model (M<sub>r</sub>):</strong> answers prompts and composes an ICLR-style review with consistent headings.</li>
+              </ul>
+              <!-- <p class="tiny">
+                We also benchmark non-finetuned modern models (e.g., IBM Granite 4.0 3B) against finetuned SEA-family models
+                for cost/stability trade-offs.
+              </p> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="box">
+            <h3 class="title is-5">SEA family (Standardization + Evaluation + Analysis)</h3>
+            <div class="content">
+              <ul>
+                <li><strong>SEA-S:</strong> normalizes structure and formatting (enables fairer metric computation).</li>
+                <li><strong>SEA-E:</strong> deeply understand papers and generate constructive reviews.</li>
+                <li><strong>SEA-A:</strong> analyze the reviews and provide feedback on the reviews.</li>
+              </ul>
+              <!-- <p class="tiny">Known issue: throughput constraints for 7B models at scale; evaluating smaller/efficient baselines.</p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns">
+        <div class="column">
+          <div class="box">
+            <h3 class="title is-5">SWIF2T (multi-agent review)</h3>
+            <div class="content">
+              <ul>
+                <li><strong>Controller:</strong> orchestrates the pipeline.</li>
+                <li><strong>Investigator:</strong> researches technical concepts referenced by the paper/review target text.</li>
+                <li><strong>Planner:</strong> plans steps and coverage to reduce omissions.</li>
+                <li><strong>Reviewer:</strong> writes the review (label + review + reasoning in early prototype; extended to full-paper reviewing).</li>
+              </ul>
+              <!-- <p class="tiny">
+                Dependency: relies on external search APIs for concept lookup (useful, but adds instability and cost/latency).
+              </p> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="column">
+          <div class="box">
+            <h3 class="title is-5">Standardization Agent (SEA) — why it matters</h3>
+            <div class="content">
+              <p>
+                Raw reviews differ in formatting (headings, bullet styles, missing fields). SEA produces a standardized schema so that:
+              </p>
+              <ul>
+                <li>automatic metrics (BLEU/ROUGE/BERTScore) are less sensitive to formatting noise,</li>
+                <li>judge-based scoring can reliably locate required sections (summary, strengths, etc.),</li>
+                <li>downstream analysis (errors, missing items) becomes comparable across systems.</li>
+              </ul>
+              <p class="tiny">We measure “sync rate” as the fraction of required standardized fields correctly produced.</p>
+            </div>
+          </div>
+        </div> -->
+
+        
     </div>
+    <div class="callout">
+        <strong>Benchmarking Setup.</strong>
+        For pipelines proposing trained models (SEA - E, SEA - A), we use authors' pretrains to best recreate the pipeline.
+        For pipelines require no finetuned models, we use a shared LLM backbone of the same scale (e.g., IBM Granite 4.0 3B) to minimize model-different bias.
+      </div>
   </div>
-</section>
-<!-- End teaser video -->
+  </section>
 
-<!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <!-- TODO: Replace with your paper abstract -->
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+  <!-- METRICS -->
+  <section class="section" id="metrics">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 section-title has-text-centered">Evaluation Metrics</h2>
+
+      <div class="columns">
+        <div class="column">
+          <div class="box">
+            <h3 class="title is-5">1) Relevance (reference-based)</h3>
+            <div class="content">
+              <p>
+                Compute text similarity between generated reviews and the paper being investigated using
+                <strong>BLEU</strong> and <strong>ROUGE-1/2/L</strong> (max-over-references when multiple references exist).
+              </p>
+              <p class="tiny">
+                Interpretation: ROUGE reflects content overlap; BLEU is more sensitive to wording stability (lower BLEU can still mean similar content).
+              </p>
+              <p class="tiny">
+                Related note: we also track BERTScore in some analyses for semantic similarity.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="box">
+            <h3 class="title is-5">2) Specificity / Depth (SPE)</h3>
+            <div class="content">
+              <p>
+                Implement the Reviewer2 specificity benchmark using <strong>BERTScore</strong>-based similarity, measuring the similarity between the generated review and the human review of the same paper. 
+              </p>
+              <p class="tiny">
+                    Intuition: Roughly estimate the depth of knowledge the LLMs extracted from the paper and from its relevant knowledge base, compare how well it matches the human review.
+              </p>
+              <p class="tiny">
+                (Implementation detail) SPE uses a difference between “best match to references” vs “best match to other reviews”.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns">
+        <div class="column">
+          <div class="box">
+            <h3 class="title is-5">3) Synthesizing Ability (external grounding)</h3>
+            <div class="content">
+              <p>
+                We score how well a review references real and relevant technical entities beyond the paper's text.
+              </p>
+              <ol>
+                <li>Extract proper nouns / method names / technical terms from the review.</li>
+                <li>Query scholarly search (e.g., Semantic Scholar) to verify existence (binary hit).</li>
+                <li><strong>Synth score</strong> = (# verified entities) / (total extracted entities).</li>
+              </ol>
+              <p class="tiny">
+                Known challenge: disambiguation + false positives (common words, acronyms). We are iterating on entity extraction and filtering.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="box">
+            <h3 class="title is-5">4) LLM-as-a-Judge (rubric-based)</h3>
+            <div class="content">
+              <p>
+                A meta-reviewer LLM evaluates each review under reviewer-guideline dimensions with strict JSON output.
+              </p>
+              <ul>
+                <li>Scores (1-5): summary, claims&vidence, relation to prior work, other aspects, questions for authors, ethics.</li>
+                <li>Recommendation: presence + value (1-5) when available.</li>
+                <li>Diagnostics: missing items + key strengths/weaknesses + self-rated confidence.</li>
+              </ul>
+              <p class="tiny">
+                Security: the judge treats paper/review text as untrusted input and ignores any instructions inside them.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns">
+        <div class="column">
+          <div class="box">
+            <h3 class="title is-5">5) LLM Detector (human-likeness proxy)</h3>
+            <div class="content">
+              <p>
+                Mix model reviews with corresponding human reviews and run LLM detectors (e.g., GPTZero / DetectGPT / other detectors).
+                Report relative detectability (model vs human).
+              </p>
+              <p class="tiny">
+                Caution: detectors are imperfect; we treat this as a relative signal, not ground truth.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <strong>Rubric used for evaluation.</strong>
+        Our metrics cover: Topical alignment & relevance (BLEU/ROUGE), Specificity/technical depth (SPE), Scholarly contextualization (Synth),
+        Professional conduct & guideline compliance (Judge), and human-likeness (Detector). We also track output standardization success via SEA.
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="section hero is-light" id="results">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 section-title has-text-centered">Preliminary Results (Snapshot)</h2>
+
+      <div class="content">
+        <p>
+          Below is an early snapshot used to validate the pipeline end-to-end. Numbers are not final; we are expanding coverage and stabilizing runs.
+        </p>
+      </div>
+
+      <div class="table-wrap">
+        <table class="table is-striped is-fullwidth">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Relevance (BLEU)</th>
+              <th>Relevance (ROUGE-1 F1)</th>
+              <th>Specificity (BERTScore)</th>
+              <th>SEA Sync / Standardization</th>
+              <th>Judge</th>
+              <th>Detector</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Human</strong></td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>TODO</td>
+              <td>TODO</td>
+            </tr>
+            <tr>
+              <td><strong>Reviewer2-style</strong></td>
+              <td>0.267</td>
+              <td>0.36</td>
+              <td>0.8326</td>
+              <td>TODO</td>
+              <td>TODO</td>
+              <td>TODO</td>
+            </tr>
+            <tr>
+              <td><strong>SEA-E</strong></td>
+              <td>0.3936</td>
+              <td>0.4100</td>
+              <td>0.8535</td>
+              <td>13859 / 14245 (97.29%)</td>
+              <td>TODO</td>
+              <td>TODO</td>
+            </tr>
+            <tr>
+              <td><strong>SWIF2T</strong></td>
+              <td>0.15</td>
+              <td>0.31</td>
+              <td>0.85</td>
+              <td>TODO</td>
+              <td>TODO</td>
+              <td>TODO</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- <div class="columns" style="margin-top: 1rem;">
+        <div class="column">
+          <div class="box">
+            <h3 class="title is-5">Granite vs Reviewer2 (ICLR subset)</h3>
+            <div class="content">
+              <p>
+                On 48 ICLR 2024 papers with a Reviewer2-style prompt (max-over-references evaluation):
+              </p>
+              <ul>
+                <li><strong>IBM Granite 4.0 3B:</strong> BLEU ≈ 6.4, ROUGE-1 ≈ 0.44, ROUGE-2 ≈ 0.12, ROUGE-L ≈ 0.20.</li>
+                <li><strong>Reviewer2:</strong> BLEU ≈ 16.9, ROUGE-1 ≈ 0.45, ROUGE-2 ≈ 0.14, ROUGE-L ≈ 0.23.</li>
+              </ul>
+              <p class="tiny">
+                Takeaway: close ROUGE but lower BLEU suggests more paraphrasing (similar content, different wording).
+                Current limitation: prototype stability depends on an external Granite server.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="box">
+            <h3 class="title is-5">Text similarity snapshot (SEA-E vs IBM-3B)</h3>
+            <div class="content">
+              <p class="tiny">
+                Example numbers observed in an early “text similarity” table (ROUGE-L / BERTScore / BLEU-4):
+              </p>
+              <ul class="tiny">
+                <li><strong>SEA-E:</strong> ROUGE-L 0.1612, BLEU-4 0.0272</li>
+                <li><strong>IBM-3B:</strong> ROUGE-L 0.1433, BLEU-4 0.0247</li>
+              </ul>
+              <p class="tiny">TODO: add the exact evaluation set definition + include confidence intervals.</p>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Optional qualitative figures -->
+      <div class="columns">
+        <div class="column">
+          <div class="box">
+            <h3 class="title is-5">Qualitative examples (placeholder)</h3>
+            <p class="tiny">
+              Add side-by-side screenshots for HUMAN vs SEA-E / SWIF2T / Reviewer2-style reviews.
+            </p>
+            <img src="static/images/qual_example.png" alt="Qualitative example placeholder" loading="lazy" style="width:100%; border-radius:10px;">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section class="section" id="roadmap">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 section-title has-text-centered">Roadmap</h2>
+
+      <div class="columns">
+        <div class="column">
+          <div class="box">
+            <h3 class="title is-5">Next steps (Dec 30 - Jan 10)</h3>
+            <div class="content">
+              <ul>
+                <li>Improve synthesizing-ability metric (entity extraction + scholarly verification robustness).</li>
+                <li>Strengthen LLM-as-a-judge pipeline (prompt hardening, aggregation, diagnostics).</li>
+                <li>Run at least one LLM detector per subgroup; report relative detectability.</li>
+                <li>Modify the technical report/paper structure and finalize evaluation protocol.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="box">
+            <h3 class="title is-5">Risks / limitations (current)</h3>
+            <div class="content">
+              <ul>
+                <li><strong>Stability:</strong> external inference endpoints can introduce variability across runs.</li>
+                <li><strong>Metric pitfalls:</strong> reference-based similarity does not capture correctness; hence judge + qualitative checks.</li>
+                <li><strong>Synth score noise:</strong> entity disambiguation and acronym collisions can inflate/deflate scores.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- RESOURCES -->
+  <section class="section hero is-light" id="resources">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 section-title has-text-centered">Resources</h2>
+
+      <div class="columns">
+        <div class="column">
+          <div class="box">
+            <h3 class="title is-5">Code & Repro</h3>
+            <div class="content">
+              <ul>
+                <li><strong>Repo:</strong> <a href="https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO" target="_blank">github.com/YOUR_GITHUB_USERNAME/YOUR_REPO</a></li>
+                <li><strong>Pipeline:</strong> paper parsing → generation → SEA standardization → evaluation</li>
+                <li><strong>Judge schema:</strong> strict JSON output for rubric scoring</li>
+              </ul>
+              <p class="tiny">TODO: add exact commands + environment once the repo is public.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+            <div class="box">
+              <h3 class="title is-5">Datasets</h3>
+              <div class="content">
+                  <ul>
+                  <li><strong>Artifacts:</strong> raw PDFs; full paper content in structured text (e.g., <span class="mono">.mmd</span>); reviews & comments in JSON; raw reviews in text.</li>
+                  <li><strong>Repo:</strong> <a href="https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO" target="_blank">github.com/YOUR_GITHUB_USERNAME/YOUR_REPO</a></li>
+                </ul>
+                <p class="tiny">TODO: add more details about the newly crawled dataset here - ICLR 25.</p>
+              </div>
+            </div>
+          </div>
+
+        <!-- <div class="column">
+          <div class="box">
+            <h3 class="title is-5">Related references we build on</h3>
+            <div class="content tiny">
+              <ul>
+                <li><a href="https://arxiv.org/abs/2407.12857v2" target="_blank">A paper discussing relevance-style metrics (arXiv:2407.12857v2)</a></li>
+                <li>Reviewer2-style prompt→review pipeline (prompt generation + templated review sections)</li>
+                <li>Focus-level evaluation tables (text similarity baselines) used as a sanity check</li>
+              </ul>
+              <p class="tiny">TODO: replace with the final curated bibliography list.</p>
+            </div>
+          </div>
+        </div> -->
+      </div>
+
+      <div class="callout">
+        <strong>Contact.</strong>
+        If you want to collaborate or run new models on the benchmark, open an issue in the repo (once public) or email the team.
+      </div>
+    </div>
+  </section>
+
+    <!-- REFERENCES -->
+    <section class="section" id="references">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 section-title has-text-centered">References</h2>
+        <div class="content">
+          <ol>
+            <li>
+              <strong>ICML Reviewer Instructions (2025).</strong>
+              <a href="https://icml.cc/Conferences/2025/ReviewerInstructions" target="_blank" rel="noopener">
+                https://icml.cc/Conferences/2025/ReviewerInstructions
+              </a>
+            </li>
+            <li>
+              <strong>Ollama Cloud Documentation.</strong>
+              <a href="https://docs.ollama.com/cloud" target="_blank" rel="noopener">
+                https://docs.ollama.com/cloud
+              </a>
+            </li>
+            <li>
+              <strong>Reviewer2.</strong>
+              <span class="tiny">
+                <a href="https://arxiv.org/pdf/2402.10886" target="_blank" rel="noopener">
+                    https://arxiv.org/pdf/2402.10886
+                </a>
+              </span>
+            </li>
+            <li>
+              <strong>SEA.</strong>
+              <span class="tiny">
+                <a href="https://arxiv.org/pdf/2407.12857v2" target="_blank" rel="noopener">
+                    https://arxiv.org/pdf/2407.12857v2
+                </a>
+              </span>
+            </li>
+            <li>
+                <strong>SWIF2T.</strong>
+                <span class="tiny">
+                    <a href="https://arxiv.org/pdf/2405.20477" target="_blank" rel="noopener">
+                        https://arxiv.org/pdf/2405.20477
+                    </a>
+                </span>
+            </li>
+            <li>
+              <strong>LLM detectors (human-likeness proxy):</strong> GPTZero, DetectGPT.
+              <span class="tiny">Add the exact tools/versions and URLs used in your experiments.</span>
+            </li>
+            <li>
+              <strong>IBM Granite 4.0 (baseline model used in preliminary runs).</strong>
+              <span class="tiny">Add official model card/URL once you decide what to cite.</span>
+            </li>
+          </ol>
+          <p class="tiny">
+            Notes: We keep references minimal here until the technical report is public. Once your arXiv is ready,
+            replace the TODO items with canonical citations and model/tool versioning.
           </p>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-<!-- End paper abstract -->
+    </section>
 
 
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- TODO: Replace with your research result images -->
-        <img src="static/images/carousel1.jpg" alt="First research result visualization" loading="lazy"/>
-        <!-- TODO: Replace with description of this result -->
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
+  <!-- BIBTEX -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <div class="bibtex-header" style="display:flex; justify-content:space-between; align-items:center;">
+        <h2 class="title">BibTeX</h2>
+        <button class="copy-bibtex-btn button is-small is-link is-light" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+          <i class="fas fa-copy"></i>&nbsp;<span class="copy-text">Copy</span>
+        </button>
       </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="Second research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="Third research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="Fourth research result visualization" loading="lazy"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
+
+      <pre id="bibtex-code"><code>@article{urop2025_llms_as_reviewers,
+  title   = {LLMs as Reviewers: Benchmarking LLM Reviews vs Human Reviews},
+  author  = {UROP 2025 LLM Reviewers Team},
+  journal = {Technical report (in progress)},
+  year    = {2025},
+  url     = {https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO/}
+}</code></pre>
+
+      <p class="tiny">
+        TODO: update authors, venue, and identifier (arXiv / DOI) when available.
+      </p>
     </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
+  </section>
 
-
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
+  <footer class="footer">
     <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- TODO: Replace with your YouTube video ID -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>
+              (adapted from <a href="https://nerfies.github.io" target="_blank">Nerfies</a>).
+              Licensed under <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>.
+            </p>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<!-- End youtube video -->
+  </footer>
 
+  <script>
+    // Minimal helpers if not provided by index.js
+    function scrollToTop(){ window.scrollTo({top: 0, behavior: 'smooth'}); }
 
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
+    function copyBibTeX() {
+      const el = document.getElementById("bibtex-code");
+      const text = el.innerText;
+      if (!navigator.clipboard) {
+        alert("Clipboard not available. Please copy manually.");
+        return;
+      }
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.querySelector(".copy-bibtex-btn .copy-text");
+        if (btn) { btn.textContent = "Copied"; setTimeout(()=>btn.textContent="Copy", 1200); }
+      }).catch(() => alert("Copy failed. Please copy manually."));
+    }
+  </script>
 
-
-
-
-
-
-<!-- Paper poster -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <!-- TODO: Replace with your poster PDF -->
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
-      </div>
-    </div>
-  </section>
-<!--End paper poster -->
-
-
-
-<!--BibTex citation -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <div class="bibtex-header">
-        <h2 class="title">BibTeX</h2>
-        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
-          <i class="fas fa-copy"></i>
-          <span class="copy-text">Copy</span>
-        </button>
-      </div>
-      <pre id="bibtex-code"><code>@article{YourPaperKey2024,
-  title={Your Paper Title Here},
-  author={First Author and Second Author and Third Author},
-  journal={Conference/Journal Name},
-  year={2024},
-  url={https://your-domain.com/your-project-page}
-}</code></pre>
-    </div>
-</section>
-<!--End BibTex citation -->
-
-
-  <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-    <!-- End of Statcounter Code -->
-
-  </body>
-  </html>
+</body>
+</html>
