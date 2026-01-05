@@ -1,0 +1,35 @@
+**Summary:**
+The paper identifies and characterizes artifacts in feature maps of Vision Transformers (ViT), particularly in DINOv2 models, which are observed in both supervised and self-supervised models. These artifacts manifest as high-norm tokens in low-informative background areas, repurposed for internal computations. The authors propose a solution involving the addition of "register" tokens to the input sequence, which effectively eliminates these artifacts. This modification improves the performance of models in dense prediction tasks and enables object discovery methods. The paper also evaluates the impact of this solution on various models and tasks, showing improved performance without regression.
+
+**Strengths:**
+- **Identification of a Novel Problem:** The paper identifies and characterizes a previously unnoticed issue in Vision Transformers.
+- **Clear and Effective Solution:** The proposed solution of adding register tokens is simple yet effective in resolving the identified problem.
+- **Broad Impact:** The solution improves performance in dense prediction tasks and enables object discovery methods, demonstrating significant impact.
+- **Comprehensive Evaluation:** The paper evaluates the solution across different models and tasks, providing robust evidence of its effectiveness.
+- **Theoretical Foundation:** The paper provides a theoretical interpretation of the observed phenomenon, linking it to the model's internal computations.
+
+**Weaknesses:**
+- **Limited Scope of Evaluation:** The evaluation focuses on specific models and tasks, which might limit the generalizability of the findings.
+- **Potential for Further Optimization:** While the solution is effective, there might be room for further optimization or refinement of the approach.
+- **Lack of Detailed Analysis on Artifacts in Supervised Models:** Although the paper discusses artifacts in supervised models, the analysis is less detailed compared to self-supervised models.
+
+**Questions:**
+- How does the proposed solution affect the computational efficiency of the models?
+- Are there any specific types of images or datasets where the artifacts are more pronounced?
+- How does the proposed solution compare to other methods for improving feature map quality in Vision Transformers?
+
+**Soundness:**
+4
+
+**Presentation:**
+4
+
+**Contribution:**
+4
+
+**Rating:**
+8
+
+**Paper Decision:**
+- **Decision:** Accept
+- **Reasons:** The paper introduces a novel problem in Vision Transformers and provides a clear, effective solution. The comprehensive evaluation across different models and tasks demonstrates the significance and impact of the proposed method. The theoretical foundation and clear interpretation of the observed phenomenon add to the paper's value. While there are areas for potential further exploration, the overall contribution is substantial and should be highlighted at the conference.
