@@ -130,36 +130,111 @@ function escapeHtml(text) {
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
+    .replace(/"/g, "&quot;");
+    // Removed: .replace(/'/g, "&#39;") - single quotes are safe in HTML content
+}
+
+function decodeHtml(text) {
+  // Manual decode common HTML entities to ensure they're properly handled
+  return text
+    .replace(/&quot;/g, '"')
+    .replace(/&#34;/g, '"')
+    .replace(/&apos;/g, "'")
+    .replace(/&#39;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&#60;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&#62;/g, '>')
+    .replace(/&amp;/g, '&'); // Must be last because other entities contain &
 }
 
 function applyHighlights(text) {
-  const numberPattern = /\b\d+(?:\.\d+)?\b/g;
-  const keywordPattern = /\b[A-Z][A-Za-z0-9\-]{2,}\b/g;
+  // NOTE: Do NOT decode HTML entities - source files already have correct characters
+  // Define patterns
   const sectionPattern =
-    /\*\*(Summary|Strengths|Weaknesses|Questions|Overall Score|Confidence|Rating|Decision|Metareview|Paper Decision|Soundness|Presentation|Contribution):\*\*/g;
+    /\*\*(Summary|Strengths|Weaknesses|Questions|Overall Score|Confidence|Rating|Decision|Metareview|Paper Decision|Soundness|Presentation|Contribution):\*\*/gi;
+  const numberPattern = /\b\d+(?:\.\d+)?%?\b/g;
+  // More selective keyword pattern
+  const keywordPattern = /\b[A-Z][A-Za-z0-9]{2,}(?:[A-Z][a-z]+)*\b/g;
 
-  // First, handle section headers BEFORE escaping HTML
-  let highlighted = text.replace(
+  // Common words to exclude from keyword highlighting
+  const excludeWords = new Set(['The', 'This', 'That', 'These', 'Those', 'What', 'Where', 'When', 'Which', 'While', 'With', 'Would', 'Could', 'Should', 'First', 'Second', 'Third', 'However', 'Therefore', 'Moreover', 'Furthermore', 'Additionally', 'Figure', 'Table', 'Section', 'Paper', 'Authors', 'Review', 'Comment', 'Question', 'Answer']);
+
+  // Step 1: Mark section headers with unique markers
+  let result = text.replace(
     sectionPattern,
-    "\x00HIGHLIGHT_START\x00$1\x00HIGHLIGHT_END\x00"
+    "\x00SECTION_START\x00$1\x00SECTION_END\x00"
   );
 
-  // Now escape HTML
-  let safe = escapeHtml(highlighted);
+  // Step 2: Mark numbers with unique markers (but not inside existing markers)
+  let parts = [];
+  let lastIndex = 0;
+  let match;
 
-  // Replace the temporary markers with actual highlights
-  safe = safe.replace(
-    /\x00HIGHLIGHT_START\x00(.*?)\x00HIGHLIGHT_END\x00/g,
+  numberPattern.lastIndex = 0;
+  while ((match = numberPattern.exec(result)) !== null) {
+    const before = result.substring(lastIndex, match.index);
+    // Check if we're inside a marker
+    const openCount = (before.match(/\x00[A-Z_]+_START\x00/g) || []).length;
+    const closeCount = (before.match(/\x00[A-Z_]+_END\x00/g) || []).length;
+
+    if (openCount === closeCount) {
+      parts.push(before);
+      parts.push("\x00NUM_START\x00" + match[0] + "\x00NUM_END\x00");
+    } else {
+      parts.push(before + match[0]);
+    }
+    lastIndex = match.index + match[0].length;
+  }
+  parts.push(result.substring(lastIndex));
+  result = parts.join('');
+
+  // Step 3: Mark keywords (avoiding markers and common words)
+  parts = [];
+  lastIndex = 0;
+
+  keywordPattern.lastIndex = 0;
+  while ((match = keywordPattern.exec(result)) !== null) {
+    const before = result.substring(lastIndex, match.index);
+
+    // Skip if it's a common word
+    if (excludeWords.has(match[0])) {
+      parts.push(before + match[0]);
+    } else {
+      // Check if we're inside a marker
+      const openCount = (before.match(/\x00[A-Z_]+_START\x00/g) || []).length;
+      const closeCount = (before.match(/\x00[A-Z_]+_END\x00/g) || []).length;
+
+      if (openCount === closeCount) {
+        parts.push(before);
+        parts.push("\x00KEY_START\x00" + match[0] + "\x00KEY_END\x00");
+      } else {
+        parts.push(before + match[0]);
+      }
+    }
+    lastIndex = match.index + match[0].length;
+  }
+  parts.push(result.substring(lastIndex));
+  result = parts.join('');
+
+  // Step 4: Escape HTML
+  result = escapeHtml(result);
+
+  // Step 5: Replace all markers with actual HTML spans
+  result = result.replace(
+    /\x00SECTION_START\x00(.*?)\x00SECTION_END\x00/g,
     '<span class="highlight"><strong>$1:</strong></span>'
   );
+  result = result.replace(
+    /\x00NUM_START\x00(.*?)\x00NUM_END\x00/g,
+    '<span class="number">$1</span>'
+  );
+  result = result.replace(
+    /\x00KEY_START\x00(.*?)\x00KEY_END\x00/g,
+    '<span class="keyword">$1</span>'
+  );
 
-  // Apply other highlights
-  safe = safe.replace(numberPattern, '<span class="number">$&</span>');
-  safe = safe.replace(keywordPattern, '<span class="keyword">$&</span>');
-
-  return safe;
+  return result;
 }
 
 function setupReviewSyncScroll(container) {
@@ -251,9 +326,19 @@ function loadReviewColumn(el) {
         console.log("[Review Loader] Empty content for", url);
         return;
       }
+
+      // Apply highlights directly without decoding (source files already have correct quotes)
       const highlighted = applyHighlights(trimmed);
-      el.innerHTML =
-        '<div class="review-content">' + highlighted + "</div>";
+
+      // Create a wrapper and set the HTML
+      const wrapper = document.createElement('div');
+      wrapper.className = 'review-content';
+      wrapper.innerHTML = highlighted;
+
+      // Clear and append
+      el.innerHTML = '';
+      el.appendChild(wrapper);
+
       console.log("[Review Loader] Content loaded successfully");
     })
     .catch((err) => {

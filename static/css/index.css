@@ -425,35 +425,39 @@ body {
 
 .review-col__body .highlight {
   background: #fef08a;
-  border-radius: 0.25rem;
-  padding: 0.1rem 0.25rem;
   color: inherit;
   font-weight: inherit;
+  font-size: inherit;
   display: inline;
   margin: 0;
+  padding: 0;
 }
 
 .review-col__body .highlight strong {
   color: inherit;
-  font-weight: 600;
+  font-weight: inherit;
+  font-size: inherit;
+  background: transparent;
 }
 
 .review-col__body .keyword {
   background: #fef08a;
-  border-radius: 0.25rem;
-  padding: 0.1rem 0.25rem;
   color: inherit;
   font-weight: inherit;
+  font-size: inherit;
   display: inline;
+  padding: 0;
+  margin: 0;
 }
 
 .review-col__body .number {
   background: #fef08a;
-  border-radius: 0.25rem;
-  padding: 0.1rem 0.25rem;
   color: inherit;
   font-weight: inherit;
+  font-size: inherit;
   display: inline;
+  padding: 0;
+  margin: 0;
 }
 
 .review-content {
