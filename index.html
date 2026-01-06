@@ -602,15 +602,97 @@
         </div>
       </div> -->
 
-      <!-- Optional qualitative figures -->
-      <div class="columns">
-        <div class="column">
-          <div class="box">
-            <h3 class="title is-5">Qualitative examples (placeholder)</h3>
-            <p class="tiny">
-              Add side-by-side screenshots for HUMAN vs SEA-E / SWIF2T / Reviewer2-style reviews.
-            </p>
-            <img src="static/images/qual_example.png" alt="Qualitative example placeholder" loading="lazy" style="width:100%; border-radius:10px;">
+      <!-- Review comparison carousel -->
+      <div class="review-compare">
+        <div class="review-compare__head">
+          <div>
+            <h3 class="title is-5">Review comparison slider (3 papers)</h3>
+            <p class="tiny">Slide through papers to compare Human vs SEA vs Reviewer2 reviews side-by-side.</p>
+          </div>
+          <div class="review-compare__legend">
+            <span class="legend-chip legend-chip--human">Human</span>
+            <span class="legend-chip legend-chip--sea">SEA</span>
+            <span class="legend-chip legend-chip--review2">Reviewer2</span>
+          </div>
+        </div>
+
+        <div class="carousel review-compare__carousel" data-autoplay="true" data-delay="7000" style="background: white;">
+          <div class="item" data-paper-id="0A5o6dCKeK" style="display: flex !important; opacity: 1 !important; visibility: visible !important;">
+            <div class="review-compare__slide" style="width: 100%; display: grid;">
+              <div class="review-col" data-kind="human">
+                <div class="review-col__head">
+                  <span>Human Review</span>
+                  <span class="review-col__meta">Paper 0A5o6dCKeK</span>
+                </div>
+                <div class="review-col__body" data-load="static/sample/0A5o6dCKeK/human.json" data-json-review-index="0"></div>
+              </div>
+              <div class="review-col" data-kind="sea">
+                <div class="review-col__head">
+                  <span>SEA Review</span>
+                  <span class="review-col__meta">SEA.txt</span>
+                </div>
+                <div class="review-col__body" data-load="static/sample/0A5o6dCKeK/SEA.txt"></div>
+              </div>
+              <div class="review-col" data-kind="review2">
+                <div class="review-col__head">
+                  <span>Reviewer2</span>
+                  <span class="review-col__meta">review2.txt</span>
+                </div>
+                <div class="review-col__body" data-load="static/sample/0A5o6dCKeK/review2.txt"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="item" data-paper-id="0aEUd9UtiA" style="display: flex !important; opacity: 1 !important; visibility: visible !important;">
+            <div class="review-compare__slide" style="width: 100%; display: grid;">
+              <div class="review-col" data-kind="human">
+                <div class="review-col__head">
+                  <span>Human Review</span>
+                  <span class="review-col__meta">Paper 0aEUd9UtiA</span>
+                </div>
+                <div class="review-col__body" data-load="static/sample/0aEUd9UtiA/human.json" data-json-review-index="0"></div>
+              </div>
+              <div class="review-col" data-kind="sea">
+                <div class="review-col__head">
+                  <span>SEA Review</span>
+                  <span class="review-col__meta">SEA.txt</span>
+                </div>
+                <div class="review-col__body" data-load="static/sample/0aEUd9UtiA/SEA.txt"></div>
+              </div>
+              <div class="review-col" data-kind="review2">
+                <div class="review-col__head">
+                  <span>Reviewer2</span>
+                  <span class="review-col__meta">review2.txt</span>
+                </div>
+                <div class="review-col__body" data-load="static/sample/0aEUd9UtiA/review2.txt"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="item" data-paper-id="2dnO3LLiJ1" style="display: flex !important; opacity: 1 !important; visibility: visible !important;">
+            <div class="review-compare__slide" style="width: 100%; display: grid;">
+              <div class="review-col" data-kind="human">
+                <div class="review-col__head">
+                  <span>Human Review</span>
+                  <span class="review-col__meta">Paper 2dnO3LLiJ1</span>
+                </div>
+                <div class="review-col__body" data-load="static/sample/2dnO3LLiJ1/human.json" data-json-review-index="0"></div>
+              </div>
+              <div class="review-col" data-kind="sea">
+                <div class="review-col__head">
+                  <span>SEA Review</span>
+                  <span class="review-col__meta">SEA.txt</span>
+                </div>
+                <div class="review-col__body" data-load="static/sample/2dnO3LLiJ1/SEA.txt"></div>
+              </div>
+              <div class="review-col" data-kind="review2">
+                <div class="review-col__head">
+                  <span>Reviewer2</span>
+                  <span class="review-col__meta">review2.txt</span>
+                </div>
+                <div class="review-col__body" data-load="static/sample/2dnO3LLiJ1/review2.txt"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

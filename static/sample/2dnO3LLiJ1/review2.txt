@@ -1,0 +1,27 @@
+**Summary:**
+The paper investigates outlier tokens in Vision Transformers (ViTs) during self‑supervised pretraining, proposing that these tokens capture global image information similarly to the CLS token. It introduces 'registers' to mitigate this issue and evaluates their impact on both the CLS token and downstream tasks using models like DINOv2 and OpenCLIP. While the authors find that registers can improve performance on tasks such as unsupervised object discovery, the results are inconsistent, particularly for OpenCLIP, raising questions about the trade‑offs and generalizability of the findings.
+
+**Strengths:**
+- Insightful identification of outlier tokens as behaving like the CLS token.
+- Practical solution with registers to mitigate the issue.
+- Comprehensive evaluation of both CLS token impact and downstream tasks.
+
+**Weaknesses:**
+- Performance discrepancy in Table 3 for OpenCLIP with registers.
+- Lack of detailed ablations to explain the discrepancy.
+- Limited exploration of how registers affect other downstream tasks.
+- Potential overgeneralization of findings across model sizes and pretraining paradigms.
+
+**Questions:**
+- Do the registers inherit the behavior of outlier tokens?
+- Why does OpenCLIP performance slightly drop despite the authors' claim of improvement?
+- How do image tokens behave after adding registers, and what are the exact mechanisms?
+- How does the norm of the CLS token change after adding registers?
+- What is the impact of registers on downstream tasks beyond unsupervised object discovery?
+- How does dataset bias (label vs. sampling) affect the emergence of outliers?
+- Why do outliers still appear in DINOv2 despite dense mask‑image modeling?
+- How do model size and pretraining paradigm influence the emergence of outlier tokens?
+
+**Overall Score:** 5: borderline
+
+**Confidence:** 3: medium
