@@ -7,7 +7,7 @@
   <!-- =========================
        Primary Meta Tags (SEO)
   ========================== -->
-  <meta name="title" content="LLMs as Reviewers: Benchmarking LLM Reviews vs Human Reviews (UROP 2025)">
+  <meta name="title" content="LLM Reviewers: When They Can Surpass Humans, and What Still Fails (UROP 2025)">
   <meta name="description" content="A benchmark and pipeline to compare LLM-generated peer reviews against human reviews across alignment, groundedness, rigor, scholarly context, actionability, prioritization, and conduct.">
   <meta name="keywords" content="peer review, LLM evaluation, LLM reviewers, benchmarking, rubric, groundedness, specificity, scholarly context, LLM-as-a-judge, review quality, NeurIPS, ICLR">
   <meta name="author" content="UROP 2025 LLM Reviewers Team (UIUC)">
@@ -19,7 +19,7 @@
   ========================== -->
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="UROP 2025 (UIUC) — LLMs as Reviewers">
-  <meta property="og:title" content="LLMs as Reviewers: Benchmarking LLM Reviews vs Human Reviews">
+  <meta property="og:title" content="LLM Reviewers: When They Can Surpass Humans, and What Still Fails">
   <meta property="og:description" content="A benchmark and pipeline to compare LLM-generated peer reviews against human reviews across alignment, groundedness, rigor, scholarly context, actionability, prioritization, and conduct.">
   <!-- TODO: Update to your GitHub Pages URL -->
   <meta property="og:url" content="https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO/">
@@ -38,13 +38,13 @@
   <!-- TODO: add handles or remove -->
   <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">
   <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE">
-  <meta name="twitter:title" content="LLMs as Reviewers: Benchmarking LLM Reviews vs Human Reviews">
+  <meta name="twitter:title" content="LLM Reviewers: When They Can Surpass Humans, and What Still Fails">
   <meta name="twitter:description" content="Benchmarking LLM reviewers vs humans with metrics for relevance, specificity, synthesize-ability, judge-based scoring, and LLM-detection.">
   <meta name="twitter:image" content="https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO/static/images/social_preview.png">
   <meta name="twitter:image:alt" content="LLMs as Reviewers Benchmark — Preview">
 
   <!-- Academic meta (fill when ready) -->
-  <meta name="citation_title" content="LLMs as Reviewers: Benchmarking LLM Reviews vs Human Reviews">
+  <meta name="citation_title" content="LLM Reviewers: When They Can Surpass Humans, and What Still Fails">
   <meta name="citation_publication_date" content="2025">
   <meta name="citation_conference_title" content="Preprint / In Progress">
   <meta name="citation_pdf_url" content="https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO/static/pdfs/paper.pdf">
@@ -60,7 +60,7 @@
   <link rel="preconnect" href="https://ajax.googleapis.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
-  <title>LLMs as Reviewers: Benchmarking LLM Reviews vs Human Reviews</title>
+  <title>LLM Reviewers: When They Can Surpass Humans, and What Still Fails</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
@@ -92,7 +92,7 @@
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
-    "headline": "LLMs as Reviewers: Benchmarking LLM Reviews vs Human Reviews",
+    "headline": "LLM Reviewers: When They Can Surpass Humans, and What Still Fails",
     "description": "A benchmark and pipeline to compare LLM-generated peer reviews against human reviews across alignment, groundedness, rigor, scholarly context, actionability, prioritization, and conduct.",
     "author": [
       { "@type": "Person", "name": "UROP 2025 LLM Reviewers Team" }
@@ -162,7 +162,7 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title">
-              LLMs as Reviewers: Benchmarking LLM Reviews vs Human Reviews
+              LLM Reviewers: When They Can Surpass Humans, and What Still Fails
             </h1>
 
             <div class="is-size-5 publication-authors">
@@ -238,13 +238,19 @@
 
             <div class="callout has-text-left" style="margin-top: 1.2rem;">
               <strong>Goal.</strong>
-              Build a reproducible pipeline to generate and evaluate LLM reviews against human reviews, and quantify performance
-              on (i) content relevance, (ii) technical depth/specificity, (iii) “synthesizing ability” via correct external references,
-              (iv) guideline compliance via LLM-as-a-judge, and (v) human-likeness via LLM detectors.
+              Human reviews are used as a reference point—not the finish line. We use controlled comparisons to answer two questions:
+              <ol style="margin-top:0.5rem;padding-left:0.75rem">
+                <li><strong>Where can LLM reviewers be strong enough to match or even surpass humans?</strong>
+                  (e.g., broader coverage, sharper writing, better recall of standard checks, stronger cross-paper contextualization).</li>
+                <li><strong>Where do LLM reviewers still fail, and what interventions improve them?</strong>
+                  (e.g., grounding/hallucinations, prioritization of major issues, actionability, and guideline compliance).</li>
+              </ol>
+              We operationalize these questions with a standardized generation pipeline (SEA) and multiple evaluation views:
+              reference-based metrics, rubric-based judging, external grounding checks, and human-likeness signals.
             </div>
 
             <p class="tiny has-text-centered" style="margin-top: 0.8rem;">
-              This page summarizes our ongoing work; numbers are preliminary and will be updated as we scale to more papers and models.
+              This page summarizes our ongoing work; numbers are preliminary and will be updated as we scale to more metrics, papers and models.
             </p>
 
           </div>
@@ -261,7 +267,7 @@
         <!-- <iframe src="static/images/complete_pipeline.pdf" alt="Pipeline overview" style="width:100%; height:600px; border: none; border-radius:12px;" type="application/pdf"></iframe> -->
         <img src="static/images/complete_pipeline.png" alt="Pipeline overview" loading="lazy" style="width:100%; border-radius:12px;">
         <h2 class="subtitle has-text-centered" style="margin-top: 0.75rem;">
-          End-to-end workflow: <span class="mono">papers → prompting/model strategy → review generation → SEA standardization → evaluation</span>.
+          End-to-end workflow: <span class="mono">papers → prompting/model strategy → review generation → evaluation</span>.
           We compare multiple generators (Reviewer2-style, SEA-based, SWIF2T) under shared datasets and metrics.
         </h2>
       </div>
@@ -276,16 +282,20 @@
           <h2 class="title is-3 section-title">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Large language models (LLMs) are increasingly used to draft and critique research papers, yet it remains unclear
-              how their reviews compare to human reviews on decision-relevant dimensions. We build a benchmark and pipeline to
-              (1) generate LLM reviews for conference papers using multiple strategies and models, (2) standardize outputs with a
-              Standardization Agent (SEA) to unify structure and formatting, and (3) evaluate review quality using both
-              reference-based metrics (e.g., BLEU/ROUGE for relevance, BERTScore-based specificity) and rubric-based scoring
-              (LLM-as-a-judge following top-venue reviewer guidelines).
-              We also study “synthesizing ability” by checking whether external technical terms/method names referenced in a review
-              correspond to real scholarly entities, and we quantify human-likeness using LLM detectors.
-              Preliminary results show that different systems trade off surface similarity, specificity, and external referencing,
-              motivating careful evaluation before deploying LLM reviewers in real workflows.
+              <p>
+                LLMs are increasingly used to draft and critique research papers, but the real question is not whether they can
+                imitate human reviewers—it is <em style="font-weight: bold;">when they can do better</em>, and <em style="font-weight: bold;">what must change when they fail</em>.
+                We build a benchmark and evaluation pipeline that uses human reviews as a reference point to map the capability
+                frontier of LLM reviewers across multiple dimensions: topical alignment, paper-groundedness (faithfulness),
+                technical rigor, scholarly contextualization, coverage and prioritization of major issues, actionability of feedback,
+                and professional conduct under top-venue norms.
+                Beyond reference-based text similarity, we evaluate external grounding (whether cited concepts and methods correspond to real scholarly entities),
+                rubric-based scoring via LLM-as-a-judge, and human-likeness via detector signals.
+                Using multiple review-generation strategies (single-pass, standardized-output, and multi-agent variants), we identify
+                where LLM reviewers can be strong and scalable, and we diagnose failure modes that require targeted interventions.
+                Our results aim to provide concrete guidance on how to deploy LLM reviewers responsibly and how to improve them in
+                the aspects that matter for scientific decision-making.
+              </p>              
             </p>
           </div>
         </div>
@@ -390,30 +400,9 @@
                 <li><strong>Planner:</strong> plans steps and coverage to reduce omissions.</li>
                 <li><strong>Reviewer:</strong> writes the review (label + review + reasoning in early prototype; extended to full-paper reviewing).</li>
               </ul>
-              <!-- <p class="tiny">
-                Dependency: relies on external search APIs for concept lookup (useful, but adds instability and cost/latency).
-              </p> -->
             </div>
           </div>
         </div>
-
-        <!-- <div class="column">
-          <div class="box">
-            <h3 class="title is-5">Standardization Agent (SEA) — why it matters</h3>
-            <div class="content">
-              <p>
-                Raw reviews differ in formatting (headings, bullet styles, missing fields). SEA produces a standardized schema so that:
-              </p>
-              <ul>
-                <li>automatic metrics (BLEU/ROUGE/BERTScore) are less sensitive to formatting noise,</li>
-                <li>judge-based scoring can reliably locate required sections (summary, strengths, etc.),</li>
-                <li>downstream analysis (errors, missing items) becomes comparable across systems.</li>
-              </ul>
-              <p class="tiny">We measure “sync rate” as the fraction of required standardized fields correctly produced.</p>
-            </div>
-          </div>
-        </div> -->
-
         
     </div>
     <div class="callout">
@@ -427,52 +416,33 @@
   <!-- METRICS -->
   <section class="section" id="metrics">
     <div class="container is-max-desktop">
-      <h2 class="title is-3 section-title has-text-centered">Evaluation Metrics</h2>
-
-      <div class="columns">
-        <div class="column">
-          <div class="box">
-            <h3 class="title is-5">1) Relevance (reference-based)</h3>
-            <div class="content">
-              <p>
-                Compute text similarity between generated reviews and the paper being investigated using
-                <strong>BLEU</strong> and <strong>ROUGE-1/2/L</strong> (max-over-references when multiple references exist).
-              </p>
-              <p class="tiny">
-                Interpretation: ROUGE reflects content overlap; BLEU is more sensitive to wording stability (lower BLEU can still mean similar content).
-              </p>
-              <p class="tiny">
-                Related note: we also track BERTScore in some analyses for semantic similarity.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="column">
-          <div class="box">
-            <h3 class="title is-5">2) Specificity / Depth (SPE)</h3>
-            <div class="content">
-              <p>
-                Implement the Reviewer2 specificity benchmark using <strong>BERTScore</strong>-based similarity, measuring the similarity between the generated review and the human review of the same paper. 
-              </p>
-              <p class="tiny">
-                    Intuition: Roughly estimate the depth of knowledge the LLMs extracted from the paper and from its relevant knowledge base, compare how well it matches the human review.
-              </p>
-              <p class="tiny">
-                (Implementation detail) SPE uses a difference between “best match to references” vs “best match to other reviews”.
-              </p>
-            </div>
-          </div>
-        </div>
+      <h2 class="title is-3 section-title has-text-centered">Current Metrics (v0) and Roadmap</h2>
+      <div class="callout" style="margin-top: 1rem;margin-bottom: 1rem;">
+        <strong>Important:</strong> Our current metrics are <em>proxies</em>. BLEU/ROUGE/BERTScore mostly measure similarity to
+        reference human reviews and do not reliably capture correctness, groundedness, or whether a review prioritizes the most
+        important issues. LLM-as-a-judge and LLM detectors are used as qualitative signals and require careful calibration.
       </div>
-
       <div class="columns">
         <div class="column">
           <div class="box">
-            <h3 class="title is-5">3) Synthesizing Ability (external grounding)</h3>
+            <h3 class="title is-5">1) Similarity</h3>
             <div class="content">
               <p>
-                We score how well a review references real and relevant technical entities beyond the paper's text.
+                Compute text similarity between generated reviews and the corresponding human review of the same paper investigated using
+                <strong>BLEU</strong>, <strong>ROUGE-1/2/L</strong> and <strong>BERTScore</strong> (max-over-references when multiple references exist).
+              </p>
+              <p class="tiny">
+                Interpretation: ROUGE reflects content overlap; BLEU is more sensitive to wording stability (lower BLEU can still mean similar content); BERTScore is a more comprehensive semantic similarity metric.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="box">
+            <h3 class="title is-5">2) Synthesizing Ability (external grounding)</h3>
+            <div class="content">
+              <p>
+                We score <em>how well a review references real and relevant technical entities beyond the paper's text</em>.
               </p>
               <ol>
                 <li>Extract proper nouns / method names / technical terms from the review.</li>
@@ -485,10 +455,12 @@
             </div>
           </div>
         </div>
+      </div>
 
+      <div class="columns">
         <div class="column">
           <div class="box">
-            <h3 class="title is-5">4) LLM-as-a-Judge (rubric-based)</h3>
+            <h3 class="title is-5">3) LLM-as-a-Judge (rubric-based)</h3>
             <div class="content">
               <p>
                 A meta-reviewer LLM evaluates each review under reviewer-guideline dimensions with strict JSON output.
@@ -504,12 +476,9 @@
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="columns">
         <div class="column">
           <div class="box">
-            <h3 class="title is-5">5) LLM Detector (human-likeness proxy)</h3>
+            <h3 class="title is-5">4) LLM Detector (human-likeness proxy)</h3>
             <div class="content">
               <p>
                 Mix model reviews with corresponding human reviews and run LLM detectors (e.g., GPTZero / DetectGPT / other detectors).
@@ -524,9 +493,13 @@
       </div>
 
       <div class="callout">
-        <strong>Rubric used for evaluation.</strong>
-        Our metrics cover: Topical alignment & relevance (BLEU/ROUGE), Specificity/technical depth (SPE), Scholarly contextualization (Synth),
-        Professional conduct & guideline compliance (Judge), and human-likeness (Detector). We also track output standardization success via SEA.
+        <strong>Planned metrics (next):</strong>
+        <ul>
+          <li><strong>Paper-groundedness / hallucination:</strong> claim-level support checking against the paper (supported / not-found / contradicted).</li>
+          <li><strong>Coverage & prioritization:</strong> whether the review identifies and correctly ranks major issues (e.g., recall@K for major concerns).</li>
+          <li><strong>Synthesizing ability (correctness):</strong> validate that external references/entities are real and relevant, not name-dropping.</li>
+        </ul>
+        <p class="tiny">These are required to answer our core questions on when LLM reviewers can surpass humans and what interventions improve failures.</p>
       </div>
     </div>
   </section>
@@ -534,11 +507,11 @@
   <!-- RESULTS -->
   <section class="section hero is-light" id="results">
     <div class="container is-max-desktop">
-      <h2 class="title is-3 section-title has-text-centered">Preliminary Results (Snapshot)</h2>
+      <h2 class="title is-3 section-title has-text-centered">Preliminary Results (Similarity + Proxy Signals)</h2>
 
       <div class="content">
         <p>
-          Below is an early snapshot used to validate the pipeline end-to-end. Numbers are not final; we are expanding coverage and stabilizing runs.
+          Below is an early snapshot used to validate the pipeline end-to-end. Numbers are not final; these results reflect similarity/proxy metrics and should not be interpreted as a full measure of review quality.
         </p>
       </div>
 
@@ -547,50 +520,46 @@
           <thead>
             <tr>
               <th>Method</th>
-              <th>Relevance (BLEU)</th>
-              <th>Relevance (ROUGE-1 F1)</th>
-              <th>Specificity (BERTScore)</th>
-              <th>SEA Sync / Standardization</th>
-              <th>Judge</th>
-              <th>Detector</th>
+              <th>Similarity (BLEU)</th>
+              <th>Similarity (ROUGE-1 F1)</th>
+              <th>Similarity (BERTScore)</th>
+              <!-- <th>SEA Sync / Standardization</th> -->
+              <th>LLM-as-a-Judge</th>
+              <th>LLM Detector</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td><strong>Human</strong></td>
-              <td>—</td>
-              <td>—</td>
-              <td>—</td>
-              <td>—</td>
+              <td>0.615</td>
+              <td>0.560</td>
+              <td>0.851</td>
               <td>TODO</td>
               <td>TODO</td>
             </tr>
             <tr>
-              <td><strong>Reviewer2-style</strong></td>
+              <td><strong>Reviewer2</strong></td>
               <td>0.267</td>
               <td>0.36</td>
               <td>0.8326</td>
               <td>TODO</td>
-              <td>TODO</td>
-              <td>TODO</td>
+              <td>1.139</td>
             </tr>
             <tr>
               <td><strong>SEA-E</strong></td>
               <td>0.3936</td>
               <td>0.4100</td>
               <td>0.8535</td>
-              <td>13859 / 14245 (97.29%)</td>
               <td>TODO</td>
-              <td>TODO</td>
+              <td>1.125</td>
             </tr>
             <tr>
               <td><strong>SWIF2T</strong></td>
-              <td>0.15</td>
-              <td>0.31</td>
-              <td>0.85</td>
+              <td>0.135</td>
+              <td>0.246</td>
+              <td>0.820</td>
               <td>TODO</td>
-              <td>TODO</td>
-              <td>TODO</td>
+              <td>1.135</td>
             </tr>
           </tbody>
         </table>
@@ -812,7 +781,7 @@
       </div>
 
       <pre id="bibtex-code"><code>@article{urop2025_llms_as_reviewers,
-  title   = {LLMs as Reviewers: Benchmarking LLM Reviews vs Human Reviews},
+  title   = {LLM Reviewers: When They Can Surpass Humans, and What Still Fails},
   author  = {UROP 2025 LLM Reviewers Team},
   journal = {Technical report (in progress)},
   year    = {2025},
