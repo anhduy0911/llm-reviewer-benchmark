@@ -565,49 +565,21 @@
         </table>
       </div>
 
-      <!-- <div class="columns" style="margin-top: 1rem;">
-        <div class="column">
-          <div class="box">
-            <h3 class="title is-5">Granite vs Reviewer2 (ICLR subset)</h3>
-            <div class="content">
-              <p>
-                On 48 ICLR 2024 papers with a Reviewer2-style prompt (max-over-references evaluation):
-              </p>
-              <ul>
-                <li><strong>IBM Granite 4.0 3B:</strong> BLEU ≈ 6.4, ROUGE-1 ≈ 0.44, ROUGE-2 ≈ 0.12, ROUGE-L ≈ 0.20.</li>
-                <li><strong>Reviewer2:</strong> BLEU ≈ 16.9, ROUGE-1 ≈ 0.45, ROUGE-2 ≈ 0.14, ROUGE-L ≈ 0.23.</li>
-              </ul>
-              <p class="tiny">
-                Takeaway: close ROUGE but lower BLEU suggests more paraphrasing (similar content, different wording).
-                Current limitation: prototype stability depends on an external Granite server.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="column">
-          <div class="box">
-            <h3 class="title is-5">Text similarity snapshot (SEA-E vs IBM-3B)</h3>
-            <div class="content">
-              <p class="tiny">
-                Example numbers observed in an early “text similarity” table (ROUGE-L / BERTScore / BLEU-4):
-              </p>
-              <ul class="tiny">
-                <li><strong>SEA-E:</strong> ROUGE-L 0.1612, BLEU-4 0.0272</li>
-                <li><strong>IBM-3B:</strong> ROUGE-L 0.1433, BLEU-4 0.0247</li>
-              </ul>
-              <p class="tiny">TODO: add the exact evaluation set definition + include confidence intervals.</p>
-            </div>
-          </div>
-        </div>
-      </div> -->
+      <div class="callout" style="margin-top: 1rem;">
+        <strong>Interpretation:</strong>
+        <ul>
+          <li>Similarity scores reflect how well the LLM reviews match the human reviews in terms of content and structure. The higher metrics the better</li>
+          <li>LLM-as-a-Judge scores reflect how well the LLM reviews follow the reviewer guidelines. The higher metrics the better</li>
+          <li>LLM Detector scores reflect how well the LLM reviews are indistinguishable from human reviews. The lower metrics the better</li>
+        </ul>
+      </div>
 
       <!-- Review comparison carousel -->
       <div class="review-compare">
         <div class="review-compare__head">
           <div>
-            <h3 class="title is-5">Review comparison slider (3 papers)</h3>
-            <p class="tiny">Slide through papers to compare Human vs SEA vs Reviewer2 reviews side-by-side.</p>
+            <h3 class="title is-5">Qualitative Comparison</h3>
+            <p class="tiny"></p>
           </div>
           <div class="review-compare__legend">
             <span class="legend-chip legend-chip--human">Human</span>
@@ -704,38 +676,57 @@
   <section class="section" id="roadmap">
     <div class="container is-max-desktop">
       <h2 class="title is-3 section-title has-text-centered">Roadmap</h2>
-
+  
       <div class="columns">
         <div class="column">
           <div class="box">
-            <h3 class="title is-5">Next steps (Dec 30 - Jan 10)</h3>
+            <h3 class="title is-5">Next steps (Jan 6 – Jan 20)</h3>
             <div class="content">
               <ul>
-                <li>Improve synthesizing-ability metric (entity extraction + scholarly verification robustness).</li>
-                <li>Strengthen LLM-as-a-judge pipeline (prompt hardening, aggregation, diagnostics).</li>
-                <li>Run at least one LLM detector per subgroup; report relative detectability.</li>
-                <li>Modify the technical report/paper structure and finalize evaluation protocol.</li>
+                <li><strong>Scale + stabilize runs:</strong> expand to larger subsets (NeurIPS’23 + ICLR’20–’24), fix seeds/settings, and log configs for reproducibility.</li>
+                <li><strong>Metrics v0 cleanup:</strong> finalize a single evaluation script for BLEU/ROUGE/BERTScore with clear “max-over-references” policy and confidence intervals (bootstrap).</li>
+                <li><strong>LLM-as-a-judge hardening:</strong> stricter JSON schema, prompt-injection resistance, multi-judge agreement (variance across seeds/models).</li>
+                <li><strong>Detector as auxiliary signal:</strong> run at least one detector across all methods and report detectability as a relative proxy (not “naturality”).</li>
+                <li><strong>Website/report alignment:</strong> update narrative to reflect our core questions (where LLMs can surpass humans, and what still fails) and clearly label current metrics as proxies.</li>
               </ul>
             </div>
           </div>
         </div>
-
+  
+        <div class="column">
+          <div class="box">
+            <h3 class="title is-5">In progress (not yet in leaderboard)</h3>
+            <div class="content">
+              <ul>
+                <li><strong>Synthesizing ability (correctness):</strong> improve entity extraction + disambiguation; add “valid & relevant reference rate” (reduce name-dropping).</li>
+                <li><strong>Paper-groundedness / hallucination:</strong> claim-level support checking against the paper (supported / not-found / contradicted).</li>
+                <li><strong>Coverage & prioritization:</strong> measure whether major issues are identified and ranked properly (e.g., recall@K for major concerns).</li>
+              </ul>
+              <p class="tiny">These are required to directly answer our two core research questions beyond similarity metrics.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="columns">
         <div class="column">
           <div class="box">
             <h3 class="title is-5">Risks / limitations (current)</h3>
             <div class="content">
               <ul>
-                <li><strong>Stability:</strong> external inference endpoints can introduce variability across runs.</li>
-                <li><strong>Metric pitfalls:</strong> reference-based similarity does not capture correctness; hence judge + qualitative checks.</li>
-                <li><strong>Synth score noise:</strong> entity disambiguation and acronym collisions can inflate/deflate scores.</li>
+                <li><strong>Stability:</strong> external inference endpoints and model version drift can introduce variability across runs.</li>
+                <li><strong>Metric pitfalls:</strong> BLEU/ROUGE/BERTScore are similarity proxies and may not reflect correctness, groundedness, or prioritization.</li>
+                <li><strong>Judge bias:</strong> LLM-as-a-judge can be inconsistent; we mitigate via multi-judge agreement and strict schemas.</li>
+                <li><strong>Synth noise:</strong> acronym collisions and entity ambiguity can inflate/deflate scores without robust disambiguation.</li>
+                <li><strong>Detector limitations:</strong> “human-likeness” detectors are unreliable; we use detectability only as an auxiliary signal.</li>
               </ul>
             </div>
           </div>
         </div>
       </div>
-
+  
     </div>
-  </section>
+  </section>  
 
   <!-- RESOURCES -->
   <section class="section hero is-light" id="resources">
